@@ -1,0 +1,87 @@
+<div class="pay d-flex flex-column align-items-center">
+    <div>
+        <img class="logo1" src="./public/images/sample_logo.png"/>
+    </div>
+    <div>
+        <p class="title1 text-center"><b>Web Based Water Billing System of LGU-Tibiao</b></p>
+    </div>
+    <div class="divider"></div>
+    <div>
+        <p class="title1"><b>Complaints &amp; Request</b></p>
+    </div>
+    <form class="w-100 d-flex flex-column align-items-center gap-2" id="complaint">
+        <div class="inputs d-flex flex-column align-items-start w-40">
+            <label>Account number</label>
+            <input class="form-control w-100" type="text" name="accountNumber" id="aNumber" placeholder="Account number (Including dash)" pattern="\d\d\d-\d\d-\d\d\d\d\d" data-charset="XXX-XX-XXXXX"/>
+        </div>
+        <div class="inputs d-flex flex-column align-items-start w-40">
+            <label>Name</label>
+            <input class="form-control w-100" type="text" name="accountName" id="aName" placeholder="Account name"/>
+        </div>
+        <div class="inputs d-flex flex-column align-items-start w-40">
+            <label>Phone number</label>
+            <input class="form-control w-100" inputmode="nummber" name="phoneNumber" id="pNumber" placeholder="Phone number"/>
+        </div>
+        <div class="inputs d-flex flex-column align-items-start w-40">
+            <label>Email Address</label>
+            <input class="form-control w-100" type="email" name="email" id="email" placeholder="Email address"/>
+        </div>
+        <div class="inputs d-flex flex-column align-items-start w-40">
+            <label>Message</label>
+            <textarea style="height: 200px;" class="form-control w-100" type="text" name="message" id="message" placeholder="Message"></textarea>
+        </div>
+        <div class="d-flex flex-column text-center">
+            <label id="error" style="color: green;">{{message}}</label>
+            <button style="text-align: center;" class="btn1 btn-primary" id="complaintButton" value="SEND">SEND</button>
+            <br>
+            <label><a href="/myComplaints">My Complaints</a></label>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="./public/js/complaint.js"></script>
+<style>
+    label{
+        color: white;
+    }
+    .btn1
+    {
+        margin: 20px;
+        margin-bottom: 0px !important;
+        background-color: white !important;
+        border-radius: 30%;
+        color: black;
+    }
+    .divider
+    {
+        width: 100%;
+        height: 2px;
+        background-color: white !important;
+        margin: 0px !important;
+        margin-bottom: 20px !important;
+    }
+    .title1
+    {
+        color: white;
+        font-size: 25px;
+    }
+    .logo1
+    {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+    }
+    .pay
+    {
+        overflow: auto;
+        padding-bottom: 20px;
+        height: 100vh;
+        padding-top: 90px;
+        background-color: #153089;
+    }
+    @media screen and (max-width: 1000px) {
+        .inputs
+        {
+            width: 80% !important;
+        }
+    }
+</style>

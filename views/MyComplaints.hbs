@@ -1,0 +1,137 @@
+<div class="mycomplaints w-100 d-flex flex-column align-items-center">
+    <div class="list-card d-flex flex-column align-items-center w-50">
+        <h3 class="text-center"><b>Complaints &amp; Requests</b></h3>
+        {{#each listOfComplaints}}
+        <div class="card w-90 d-flex flex-row">
+            <div class="w-80 d-flex flex-column">
+                <div><b>{{this.email}}</b></div>
+                <div><i>{{this.dateTime}}</i></div>
+            </div>
+            <div class="w-20 d-flex justify-content-end">
+                <button style="text-align: right;" data-toggle="modal" data-target="#exampleModalCenter"
+                    onclick="ShowDialogCompalints('{{this.accountName}}','{{this.email}}','{{this.phoneNumber}}','{{this.dateTime}}','{{this.accountNumber}}','{{this.userUid}}','{{this.message}}')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M12 12.5C12.2761 12.5 12.5 12.2761 12.5 12C12.5 11.7239 12.2761 11.5 12 11.5C11.7239 11.5 11.5 11.7239 11.5 12C11.5 12.2761 11.7239 12.5 12 12.5Z"
+                            fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M12 18.5C12.2761 18.5 12.5 18.2761 12.5 18C12.5 17.7239 12.2761 17.5 12 17.5C11.7239 17.5 11.5 17.7239 11.5 18C11.5 18.2761 11.7239 18.5 12 18.5Z"
+                            fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path
+                            d="M12 6.5C12.2761 6.5 12.5 6.27614 12.5 6C12.5 5.72386 12.2761 5.5 12 5.5C11.7239 5.5 11.5 5.72386 11.5 6C11.5 6.27614 11.7239 6.5 12 6.5Z"
+                            fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img class="logo2" src="./public/images/sample_logo.png" />
+                    <h5 class="modal-title" id="exampleModalLongTitle"><b>Web Based Water Billing System of LGU-Tibiao</b></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex flex-column gap-2">
+                        <label>Complanints &amp; Requests Details</label>
+                        <div class="d-flex flex-row">
+                            <div><label>Name</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;" id="name">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div><label>Email</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;" id="email">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="w-50"><label>Phone Number</label></div>
+                            <div class="w-50"><label class="w-100" style="text-align: right;" id="phone">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="w-30"><label>Date &amp; Time</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;" id="date">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <div>Message</div>
+                            <div class="border p-2">
+                                <label id="com-m"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer w-100">
+                    <div class="d-flex flex-column gap-2 w-100">
+                        <div class="d-flex flex-row">
+                            <div class="w-40"><label>Account Number</label></div>
+                            <div class="w-80"><label class="w-100" style="text-align: right;"
+                                    id="accNumber">Name</label></div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="w-40"><label>Account UID</label></div>
+                            <div class="w-80"><label class="w-100" style="text-align: right;" id="uid">Name</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function ShowDialogCompalints(name, email, phone, date, accountNumber, uid, message) {
+        document.getElementById("name").innerHTML = name;
+        document.getElementById("email").innerHTML = email;
+        document.getElementById("phone").innerHTML = phone;
+        document.getElementById("date").innerHTML = date;
+        document.getElementById("com-m").innerHTML = message;
+        document.getElementById("accNumber").innerHTML = accountNumber;
+        document.getElementById("uid").innerHTML = uid;
+    }
+</script>
+<style>
+    .mycomplaints {
+        padding-top: 80px !important;
+        height: 100vh;
+        background: #153089;
+        overflow: auto;
+    }
+    .list-card {
+        height: 100vh;
+        overflow: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: white;
+    }
+    .card {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        border: unset !important;
+        background-color: unset !important;
+    }
+
+    svg {
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 650px) {
+        .list-card {
+            width: 80% !important;
+        }
+    }
+</style>

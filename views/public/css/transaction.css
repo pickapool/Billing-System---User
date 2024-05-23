@@ -1,0 +1,168 @@
+.w-25 {
+    width: 25%;
+  }
+
+  .w-75 {
+    width: 75%;
+  }
+
+  .w-10 {
+    width: 10%;
+  }
+
+  .w-15 {
+    width: 15%;
+  }
+
+  .w-20 {
+    width: 20%;
+  }
+
+  .w-30 {
+    width: 30%;
+  }
+
+  .w-40 {
+    width: 40%;
+  }
+
+  .w-50 {
+    width: 50%;
+  }
+
+  .w-60 {
+    width: 60%;
+  }
+
+  .w-70 {
+    width: 70%;
+  }
+
+  .w-80 {
+    width: 80%;
+  }
+
+  .w-90 {
+    width: 90%;
+  }
+  .w-100 {
+    width: 100%;
+  }
+.receipt {
+    background-color: beige;
+    height: 100%;
+    padding: 20px;
+}
+
+.StyledReceipt {
+    background: linear-gradient(45deg, #aaa, #fff) !important;
+    height: 100%;
+    padding: 2rem 1rem 2rem 1rem;
+    --mask: 
+    conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/20.00px 51% repeat-x,
+    conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/20.00px 51% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}
+
+.StyledReceipt:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(45deg, #aaa, #fff);
+    --mask: 
+    conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/20.00px 51% repeat-x,
+    conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/20.00px 51% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}
+
+.close {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #153089;
+}
+
+.list-card {
+    height: 100vh;
+    padding: 10px;
+    background-color: white;
+}
+
+h5 {
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.logo2 {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+button {
+    border: unset !important;
+    background-color: unset !important;
+}
+
+svg {
+    cursor: pointer;
+}
+
+.card {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 14px !important;
+}
+
+.btn1 {
+    margin: 20px;
+    margin-bottom: 0px !important;
+    background-color: white !important;
+    border-radius: 30%;
+    color: black;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background-color: white !important;
+    margin: 0px !important;
+    margin-bottom: 20px !important;
+}
+
+.title1 {
+    color: white;
+    font-size: 25px;
+}
+
+.pay {
+    overflow: auto;
+    padding-bottom: 20px;
+    height: 100vh;
+    padding-top: 90px;
+    background-color: #153089;
+}
+
+@media screen and (max-width: 1000px) {
+    .items {
+        width: 98% !important;
+    }
+
+    .cards-container {
+        width: 100% !important;
+    }
+    .receipt
+    {
+        width: 100% !important;
+    }
+    .StyledReceipt
+    {
+        width: 98% !important;
+    }
+}

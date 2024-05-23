@@ -1,0 +1,60 @@
+<link rel="stylesheet" type="text/css" href="./public/css/transaction.css" />
+<div class="pay d-flex flex-column align-items-center">
+    <div class="items d-flex flex-column gap-2 align-items-center list-card w-50">
+        <h3 class="text-center" id="title"><b>BILLS</b></h3>
+        <div class="cards-container d-flex flex-column w-90" id="cards-container">
+            {{#each MyBills}}
+            <div class="card w-100">
+                <div class="d-flex flex-row">
+                    <div class="d-flex flex-column w-50">
+                        <label>Bill</label>
+                        <label><i>Due date: {{this.duedate}}</i></label>
+                        <label><i>Date Covered: {{this.datefrom}} - {{this.dateto}}</i></label>
+                        <label><i>Reading: {{this.readingfrom}}  to {{this.readingto}}</i></label>
+                        <label><i>Arrears: {{this.arrears}}</i></label>
+                    </div>
+                    <div class="d-flex justify-content-end align-items-center w-30">
+
+                    </div>
+                    <div class="d-flex justify-content-end align-items-center w-40">
+                        <label style="text-align: right;"><b>P {{this.amount}}</b></label>
+                        <div class="dropdown show">
+                            <a class="btn btn-forgot" href="#" role="button" id="dropdownMenuLink"
+                                data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                    class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                                    <path
+                                        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                </svg>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <div class="d-flex flex-row align-items-center" style="margin-left: 10px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        fill="#000000" height="20" width="20" version="1.1" id="Layer_1"
+                                        viewBox="0 0 512.011 512.011" xml:space="preserve">
+                                        <g>
+                                            <g>
+                                                <g>
+                                                    <path
+                                                        d="M447.925,0.005H64.075c-35.382,0-64.064,28.692-64.064,64.085v191.703C0.01,255.865,0,255.934,0,256.005     c0,0.071,0.01,0.14,0.011,0.211V447.92c0,35.393,28.682,64.085,64.064,64.085h383.851c35.398,0,64.085-28.687,64.085-64.085     V64.091C512.011,28.693,483.323,0.005,447.925,0.005z M64.075,42.672h383.851c11.834,0,21.419,9.585,21.419,21.419v170.581     H42.677V64.091C42.677,52.258,52.26,42.672,64.075,42.672z M447.925,469.339H64.075c-11.814,0-21.397-9.586-21.397-21.419     V277.339h426.667V447.92C469.344,459.754,459.759,469.339,447.925,469.339z" />
+                                                    <path
+                                                        d="M320,320.005c-11.782,0-21.333,9.551-21.333,21.333c0,11.791-9.542,21.333-21.333,21.333h-42.667     c-11.791,0-21.333-9.542-21.333-21.333c0-11.782-9.551-21.333-21.333-21.333s-21.333,9.551-21.333,21.333     c0,35.355,28.645,64,64,64h42.667c35.355,0,64-28.645,64-64C341.333,329.557,331.782,320.005,320,320.005z" />
+                                                    <path
+                                                        d="M234.667,170.672h42.667c35.355,0,64-28.645,64-64c0-11.782-9.551-21.333-21.333-21.333s-21.333,9.551-21.333,21.333     c0,11.791-9.542,21.333-21.333,21.333h-42.667c-11.791,0-21.333-9.542-21.333-21.333c0-11.782-9.551-21.333-21.333-21.333     s-21.333,9.551-21.333,21.333C170.667,142.027,199.311,170.672,234.667,170.672z" />
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <a class="dropdown-item" href="/paybills?amount={{this.amount}}&previousreading={{this.readingfrom}}&presentreading={{this.readingto}}&consumed={{this.consumed}}&arrears={{this.arrears}}">Pay Bills</a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

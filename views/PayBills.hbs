@@ -1,0 +1,87 @@
+<div class="pay d-flex flex-column align-items-center">
+    <div>
+        <img class="logo1" src="./public/images/sample_logo.png" style="border-radius: 50%;"/>
+    </div>
+    <div>
+        <p class="title1"><b>Web Based Water Billing System of LGU-Tibiao</b></p>
+    </div>
+    <div class="divider"></div>
+    <form class="w-100 d-flex flex-column align-items-center gap-2" id="paybill">
+        <input type="hidden" name="previousreading" id="previousreading"  value="{{this.previousreading}}"/>
+        <input type="hidden" name="presentreading" id="presentreading" value="{{this.presentreading}}"/>
+        <input type="hidden" name="consumed" id="consumed" value="{{this.consumed}}"/>
+        <input type="hidden" name="arrears" id="arrears" value="{{this.arrears}}"/>
+        <div class="inputs d-flex flex-column w-100 align-items-center">
+            <input class="form-control w-20" name="amount" id="amount" placeholder="Amount" value="{{amount}}" pattern="^\d*(\.\d{0,2})?$"/>
+            <label>Amount</label>
+        </div>
+        <div class="second-input d-flex flex-column align-items-start w-40">
+            <label>Account number</label>
+            <input class="form-control w-100" type="text" name="accountNumber" id="aNumber" placeholder="Account number (Including dash)" pattern="\d\d\d-\d\d-\d\d\d\d\d" data-charset="XXX-XX-XXXXX" required/>
+        </div>
+        <div class="second-input d-flex flex-column align-items-start w-40">
+            <label>Account name</label>
+            <input class="form-control w-100" type="text" name="accountName" id="aName" placeholder="Account name" required/>
+        </div>
+        <div class="second-input d-flex flex-column align-items-start w-40">
+            <label>Phone number</label>
+            <input class="form-control w-100" type="text" name="phoneNumber" id="pNumber" placeholder="Phone number" required/>
+        </div>
+        <div>
+            <button style="text-align: center;" class="btn1 btn-primary" id="next" value="NEXT">NEXT</button>
+        </div>
+        <div>
+             <label id="error" style="color: red;"></label>
+        </div>
+    </form>
+    <a style="text-align: center;" class="btn1 btn-primary" value="NEXT" id="payment">PROCEED TO PAYMENT</a>
+</div>
+<script type="text/javascript" src="./public/js/paybill.js"></script>
+<style>
+    label{
+        color: white;
+    }
+    .btn1
+    {
+        margin: 20px;
+        margin-bottom: 0px !important;
+        background-color: white !important;
+        border-radius: 30%;
+        color: black;
+    }
+    .divider
+    {
+        width: 100%;
+        height: 2px;
+        background-color: white !important;
+        margin: 0px !important;
+        margin-bottom: 20px !important;
+    }
+    .title1
+    {
+        color: white;
+        font-size: 25px;
+    }
+    .logo1
+    {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+    }
+    .pay
+    {
+        height: 100vh;
+        padding-top: 90px;
+        background-color: #153089;
+    }
+     @media screen and (max-width: 1000px) {
+        div input
+        {
+            width: 50% !important;
+        }
+        .second-input
+        {
+            width: 90% !important;
+        }
+     }
+</style>

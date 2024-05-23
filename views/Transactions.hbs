@@ -1,0 +1,411 @@
+<link rel="stylesheet" type="text/css" href="./public/css/transaction.css" />
+<div class="pay d-flex flex-column align-items-center">
+    <div class="items d-flex flex-column gap-2 align-items-center list-card w-50">
+        <h3 class="text-center" id="title"><b>TRANSACTIONS</b></h3>
+        <div class="cards-container d-flex flex-column w-90" id="cards-container">
+
+        </div>
+        <div class="d-flex justify-content-between w-60">
+            <label id="download" style="color: blue; cursor : pointer;" onclick="cancel()"><u>Cancel</u></label>
+            <label id="download1" style="color: blue; cursor : pointer;" onclick="print()"><u>Download</u></label>
+        </div>
+        <div class="receipt w-100 d-flex flex-column justify-content-center align-items-center" id="receipt">
+            <div class="StyledReceipt w-60 rounded">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <img class="logo2" src="./public/images/sample_logo.png" style="border-radius: 50%;" />
+                            <h5 class="modal-title" id="exampleModalLongTitle"><b>Web Based Water Billing System of LGU-Tibiao</b></h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="d-flex flex-column gap-2">
+                                <label>Transaction Details</label>
+                                <div class="d-flex flex-row">
+                                    <div><label>Name</label></div>
+                                    <div class="w-100"><label class="w-100" style="text-align: right;"
+                                            id="name2">Name</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <div><label>Email</label></div>
+                                    <div class="w-100"><label class="w-100" style="text-align: right;"
+                                            id="email2">Name</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <div class="w-30"><label>Phone Number</label></div>
+                                    <div class="w-100"><label class="w-100" style="text-align: right;"
+                                            id="phone2">Name</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <div class="w-50"><label>Previous reading</label></div>
+                                    <div class="w-100"><label class="w-100" style="text-align: right;"
+                                            id="previousreading">Name</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <div class="w-50"><label>Present reading</label></div>
+                                    <div class="w-100"><label class="w-100" style="text-align: right;"
+                                            id="presentreading">Name</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <div class="w-50"><label>Consumed</label></div>
+                                    <div class="w-100"><label class="w-100" style="text-align: right;"
+                                            id="consumed">Name</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <div class="w-50"><label>Arrears</label></div>
+                                    <div class="w-100"><label class="w-100" style="text-align: right;"
+                                            id="arrears">Name</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <div class="w-30"><label>Date &amp; Time</label></div>
+                                    <div class="w-100"><label class="w-100" style="text-align: right;"
+                                            id="date2">Name</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <div><label>Amount</label></div>
+                                    <div class="w-100"><label class="w-100" style="text-align: right;"
+                                            id="amount2">Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer w-100">
+                            <div class="d-flex flex-column gap-2 w-100">
+                                <div class="d-flex flex-row">
+                                    <div class="w-30"><label>Payment Type</label></div>
+                                    <div class="w-80"><label class="w-100" style="text-align: right;"
+                                            id="type2">Name</label>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row">
+                                    <div class="w-50"><label>Reference Number</label></div>
+                                    <div class="w-80"><label class="w-100" style="text-align: right;"
+                                            id="reference2">Name</label></div>
+                                </div>
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img class="logo2" src="./public/images/sample_logo.png" style="border-radius: 50%;" />
+                    <h5 class="modal-title" style="margin-top: 20px !important;" id="exampleModalLongTitle"><b>Hamtic
+                            Water District</b></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex flex-column gap-2">
+                        <label>Transaction Details</label>
+                        <div class="d-flex flex-row">
+                            <div><label>Name</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;" id="name">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div><label>Email</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;" id="email">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="w-30"><label>Phone Number</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;" id="phone">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="w-30"><label>Date &amp; Time</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;" id="date">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="w-50"><label>Previous reading</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;"
+                                    id="previousreading1">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="w-50"><label>Present reading</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;"
+                                    id="presentreading1">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="w-50"><label>Consumed</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;"
+                                    id="consumed1">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="w-50"><label>Arrears</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;" id="arrears1">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div><label>Amount</label></div>
+                            <div class="w-100"><label class="w-100" style="text-align: right;" id="amount">Name</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer w-100">
+                    <div class="d-flex flex-column gap-2 w-100">
+                        <div class="d-flex flex-row">
+                            <div class="w-30"><label>Payment Type</label></div>
+                            <div class="w-80"><label class="w-100" style="text-align: right;" id="type">Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-row">
+                            <div class="w-40"><label>Reference Number</label></div>
+                            <div class="w-80"><label class="w-100" style="text-align: right;"
+                                    id="reference">Name</label></div>
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <button type="button" class="close rounded" onclick="SetPrinting()" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">Print receipt</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+<script>
+    document.getElementById("receipt").style = "display: none !important;";
+    document.getElementById("download").style = "display: none !important;";
+    document.getElementById("download1").style = "display: none !important;";
+    var payments = [];
+    payments = {{{ paymentIds }}}
+    console.log(payments)
+    for (var i = 0; i < payments.length; i++) {
+        const options =
+        {
+            method: 'GET',
+            headers:
+            {
+                accept: 'application/json',
+                'content-type': 'application/json',
+                authorization: 'Basic c2tfdGVzdF95UEFzYjNlWjNhUUhCS0t0M3RSTHZ5cG06'
+            }
+        };
+        fetch('https://api.paymongo.com/v1/links/' + payments[i].paymentId, options)
+            .then(response => {
+                // console.log(response.json())
+                response.json().then(function (result) {
+
+
+                    var paid = result.data.attributes.status;
+                    var reference = result.data.attributes.reference_number;
+                    var amount = result.data.attributes.amount;
+                    var name = result.data.attributes.payments[0].data.attributes.billing.name;
+                    var email = result.data.attributes.payments[0].data.attributes.billing.email;
+                    var phone = result.data.attributes.payments[0].data.attributes.billing.phone;
+                    var type = result.data.attributes.payments[0].data.attributes.source.type;
+                    var name = result.data.attributes.payments[0].data.attributes.billing.name;
+                    var date = new Date(result.data.attributes.payments[0].data.attributes.paid_at * 1000);
+                    var date_paid = date.toUTCString();
+                    var totalAmount = amount / 100;
+                    //console.log(totalAmount);
+                    if (paid == "paid") {
+                        let contents = document.getElementById("cards-container").innerHTML;
+                        var newContents = `
+                            <div class="card w-100">
+                                <div class="d-flex flex-row">
+                                    <div class="d-flex flex-column w-50">
+                                        <label>Payment</label>
+                                        <label><i>`+ date_paid + `</i></label>
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center w-30">
+                                        
+                                    </div>
+                                    <div class="d-flex justify-content-end align-items-center w-40">
+                                         <label style="text-align: right;"><b>`+ `+ ` + addZeroes(totalAmount) + `</b></label>
+                                        <button style="text-align: right;" data-toggle="modal" data-target="#exampleModalCenter"
+                                        onclick="ShowDialog('`+ name
+                            + `','` + email
+                            + `','` + phone
+                            + `','` + date_paid
+                            + `','` + addZeroes(totalAmount)
+                            + `','` + type
+                            + `','` + reference
+                            + `','` + payments[i].previousreading
+                            + `','` + payments[i].presentreading
+                            + `','` + payments[i].consumed
+                            + `','` + payments[i].arrears + `')"
+                                        >
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24"
+                                                fill="none">
+                                                <path
+                                                    d="M12 12.5C12.2761 12.5 12.5 12.2761 12.5 12C12.5 11.7239 12.2761 11.5 12 11.5C11.7239 11.5 11.5 11.7239 11.5 12C11.5 12.2761 11.7239 12.5 12 12.5Z"
+                                                    fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M12 18.5C12.2761 18.5 12.5 18.2761 12.5 18C12.5 17.7239 12.2761 17.5 12 17.5C11.7239 17.5 11.5 17.7239 11.5 18C11.5 18.2761 11.7239 18.5 12 18.5Z"
+                                                    fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                                <path
+                                                    d="M12 6.5C12.2761 6.5 12.5 6.27614 12.5 6C12.5 5.72386 12.2761 5.5 12 5.5C11.7239 5.5 11.5 5.72386 11.5 6C11.5 6.27614 11.7239 6.5 12 6.5Z"
+                                                    fill="#000000" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg></button>
+                                    </div>
+                                </div>
+                            </div>`;
+                        document.getElementById('cards-container').innerHTML = newContents + contents;
+                    }
+                });
+            })
+            .then(response => {
+                //console.log(response) 
+            })
+            .catch(err => console.error(err));
+    }
+    function ShowDialog(name, email, phone, date, amount, type, reference, previousreading, presentreading, consumed, arrears) {
+        document.getElementById("name").innerHTML = name;
+        document.getElementById("email").innerHTML = email;
+        document.getElementById("phone").innerHTML = phone;
+        document.getElementById("date").innerHTML = date;
+        document.getElementById("amount").innerHTML = amount;
+        document.getElementById("type").innerHTML = type;
+        document.getElementById("reference").innerHTML = reference;
+
+        document.getElementById("name2").innerHTML = name;
+        document.getElementById("email2").innerHTML = email;
+        document.getElementById("phone2").innerHTML = phone;
+        document.getElementById("date2").innerHTML = date;
+        document.getElementById("amount2").innerHTML = amount;
+        document.getElementById("type2").innerHTML = type;
+        document.getElementById("reference2").innerHTML = reference;
+        document.getElementById("previousreading").innerHTML = previousreading;
+        document.getElementById("presentreading").innerHTML = presentreading;
+        document.getElementById("consumed").innerHTML = consumed;
+        document.getElementById("arrears").innerHTML = arrears;
+
+        
+        document.getElementById("previousreading1").innerHTML = previousreading;
+        document.getElementById("presentreading1").innerHTML = presentreading;
+        document.getElementById("consumed1").innerHTML = consumed;
+        document.getElementById("arrears1").innerHTML = arrears;
+
+
+    }
+    function addZeroes(num) {
+        // Cast as number
+        var num = Number(num);
+        // If not a number, return 0
+        if (isNaN(num)) {
+            return 0;
+        }
+        // If there is no decimal, or the decimal is less than 2 digits, toFixed
+        if (String(num).split(".").length < 2 || String(num).split(".")[1].length <= 2) {
+            num = num.toFixed(2);
+        }
+        // Return the number
+        return num;
+    }
+    function SetPrinting() {
+        document.getElementById('cards-container').style = "display : none !important;";
+        document.getElementById('receipt').style = "display : block;";
+        document.getElementById('download').style = "display : block; color: blue; cursor : pointer;"
+        document.getElementById('download1').style = "display : block; color: blue; cursor : pointer;"
+        document.getElementById('title').innerHTML = "Receipt";
+    }
+    function cancel() {
+        document.getElementById('cards-container').style = "display : block !important;";
+        document.getElementById('receipt').style = "display : none !important;";
+        document.getElementById('download').style = "display : none;"
+        document.getElementById('download1').style = "display : none;"
+        document.getElementById('title').innerHTML = "Transactions";
+    }
+    function print() {
+        var mywindow = window.open(' ', ' ', 'width=' + '1024px' + ', height=' + '1200px');
+        mywindow.document.write('<html><head><title></title>');
+        mywindow.document.write(`<link rel="stylesheet" type="text/css" href="./public/css/transaction.css" media="all"/>`);
+        mywindow.document.write(`<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">`);
+        mywindow.document.write('</head><body >');
+        mywindow.document.write(document.getElementById('receipt').innerHTML);
+        mywindow.document.write('</body></html>');
+        mywindow.document.write(`
+        <style>
+       
+        @media only print {
+            .receipt
+            {
+                background-color: beige !important;
+                height: 100% !important;
+                padding: 20px !important;
+                width: 100% !important;
+                display : flex !important;
+                align-items : center !important;
+                top:50% !important;
+                left:50% !important;
+            }
+            .StyledReceipt 
+            {
+                top:50% !important;
+                left:50% !important;
+                width: 60% !important;
+                height : 50% !important;
+                background: linear-gradient(45deg,#aaa,#fff) !important;
+                padding: 2rem 1rem 2rem 1rem !important;
+                --mask: 
+                conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/20.00px 51% repeat-x,
+                conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/20.00px 51% repeat-x;
+            -webkit-mask: var(--mask);
+                    mask: var(--mask);
+                        }
+                        .StyledReceipt:before {
+                            content:"";
+                            position:absolute;
+                            z-index:-1;
+                            inset:0;
+                            background: linear-gradient(45deg,#aaa,#fff);
+                            --mask: 
+                conic-gradient(from 135deg at top,#0000,#000 1deg 89deg,#0000 90deg) top/20.00px 51% repeat-x,
+                conic-gradient(from -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) bottom/20.00px 51% repeat-x;
+            -webkit-mask: var(--mask);
+                    mask: var(--mask);
+            }
+        }
+        </style>
+        `);
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
+        setTimeout(function () {
+            mywindow.print();
+            mywindow.close();
+        }, 1000);
+
+        //   mywindow.close();
+    }
+</script>
