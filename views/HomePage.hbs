@@ -59,7 +59,51 @@
 </div>
 <div class="services d-flex flex-column" id="services">
   <p class="service-title d-flex justify-content-center" style="font-size: 45px;color:white;"><b>SERVICES</b></p>
-  <div class="w-100 white-bar d-flex align-items-center justify-content-center">
+  <div class="d-flex flex-column pl-5 pr-5">
+    <div class="d-flex flex-row pa-5 service-con">
+      <div class="d-flex flex-column gap-4 content-service w50p">
+        <p class="service-title d-flex" style="font-size: 40px;color:white;"><b>Pay Bill</b></p>
+        <p class="service-title d-flex justify-content-center" style="font-size: 20px;color:white;">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+      <div class="d-flex justify-content-center align-items-center w50p">
+        <div class="circle">
+          <img class="logo-service" src="../public/images/payment.png" />
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-row pa-5 service-con">
+      <div class="d-flex justify-content-center align-items-center w50p">
+        <div class="circle">
+          <img class="logo-service" src="../public/images/folder.png" />
+        </div>
+      </div>
+      <div class="d-flex flex-column gap-4 content-service w50p">
+        <p class="service-title d-flex" style="font-size: 40px;color:white;"><b>Transaction</b></p>
+        <p class="service-title d-flex justify-content-center" style="font-size: 20px;color:white;">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+    </div>
+
+    <div class="d-flex flex-row pa-5 service-con">
+      <div class="d-flex flex-column gap-4 content-service w50p">
+        <p class="service-title d-flex" style="font-size: 40px;color:white;"><b>Complaint & Request</b></p>
+        <p class="service-title d-flex justify-content-center" style="font-size: 20px;color:white;">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+      </div>
+      <div class="d-flex justify-content-center align-items-center w50p">
+        <div class="circle">
+          <img class="logo-service" src="../public/images/printing.png" />
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  {{!-- <div class="w-100 white-bar d-flex align-items-center justify-content-center">
     <div class="white-bar-bar w-100 d-flex justify-content-center align-items-center">
       <div class="shadow mb-5 bg-white rounded d-flex flex-column justify-content-center align-items-center">
         <div class=" d-flex justify-content-center align-items-center">
@@ -83,7 +127,7 @@
         <a style="height: 40px;" class="btn btn-primary" href="/complaints">PROCEED</a>
       </div>
     </div>
-  </div>
+  </div> --}}
 </div>
 <div class="services2 d-flex flex-column">
   <p class="service-title d-flex justify-content-center" style="font-size: 45px;color:white;"><b>SERVICES</b></p>
@@ -109,22 +153,6 @@
     <a style="height: 40px;" class="btn btn-primary" href="/complaints">PROCEED</a>
   </div>
 </div>
-{{!-- <div class="app-download d-flex flex-column align-items-center">
-  <p class="service-title d-flex justify-content-center" style="font-size: 45px;color:white;"><b>BYB WATER APP</b></p>
-  <p class="w-80" style="color: white;">Bayambang Water District App or simply the BYB Water App is a mobile
-    application developed by CCS Students of Perpetual Help College of Pangasinan that can be downloaded into your
-    mobile phones.
-  </p>
-  <img class="w-60" style="transform: rotate(20deg);" src="./public/images/baywad-app.png" />
-  <a class="download-app" href="https://drive.google.com/file/d/1OkilTLyOpO_C7KGBfNlRhZPSNPcR1Y2_/view?usp=sharing"
-    type="button">Click here to download the app.</a>
-</div>
-<div class="image-app">
-  <div class="w-100 download">
-    <a class="download-app" href="https://drive.google.com/file/d/1OkilTLyOpO_C7KGBfNlRhZPSNPcR1Y2_/view?usp=sharing"
-      type="button">Click here to download the app.</a>
-  </div>
-</div> --}}
 <div class="contact d-flex flex-row justify-content-center align-items-center">
   <div class="mb-5 contacts contact-left w-30 d-flex flex-column p-4">
     <p class="text-center" style="font-size: 24px;"><b>Contact Us</b></p>
@@ -172,6 +200,35 @@
 </div>
 </div>
 <style>
+  .circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%; /* Create a circle */
+    background-color: #ffffff; /* Background color for the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for depth */
+    overflow: hidden; /* Ensure the image doesn't overflow the circle */
+  }
+   .circle img {
+    width: calc(100% - 40px); /* Adjust image size to include padding */
+    height: calc(100% - 40px);
+    padding: 30px; /* Padding around the image */
+    object-fit: cover; /* Ensure the image covers the space */
+  }
+  .service-con
+  {
+    height: auto;
+    padding-left: 10rem;
+    padding-right: 10rem;
+    width: 100%;
+  }
+  .w50p
+  {
+    width: 50%;
+  }
   .btn {
     padding: 10px;
   }
@@ -248,7 +305,7 @@
   }
 
   .logo-service {
-    width: 60%;
+    width: 40%;
   }
 
   .shadow {
@@ -275,7 +332,7 @@
   }
 
   .services {
-    height: 600px;
+    height: auto;
     padding-top: 20px;
     background-color: #153089;
   }
