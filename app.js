@@ -72,7 +72,7 @@ app.get('/', (request, response) => {
       response.render('HomePage', { isLogin: false });
     })
     .catch((error) => {
-      response.render('Login', { isLogin: true });
+      response.render('HomePage', { isLogin: true });
     });
 });
 app.get('/services', (request, response) => {
@@ -83,7 +83,7 @@ app.get('/services', (request, response) => {
       response.render('Services', { isLogin: false });
     })
     .catch((error) => {
-      response.render('Login', { isLogin: true });
+      response.render('Services', { isLogin: true });
     });
 });
 app.get('/home', (request, response) => {
@@ -94,8 +94,11 @@ app.get('/home', (request, response) => {
       response.render('HomePage', { isLogin: false });
     })
     .catch((error) => {
-      response.render('Login', { isLogin: true });
+      response.render('HomePage', { isLogin: true });
     });
+});
+app.get('/login', (request, response) => {
+  response.render('login', { isLogin: true , loginPage : true});
 });
 app.get('/aboutus', (request, response) => {
   const sessionCookie = request.cookies.session || "";
@@ -105,7 +108,7 @@ app.get('/aboutus', (request, response) => {
       response.render('AboutUs', { isLogin: false });
     })
     .catch((error) => {
-      response.render('Login', { isLogin: true });
+      response.render('AboutUs', { isLogin: true });
     });
 });
 app.get('/contactus', (request, response) => {
@@ -116,7 +119,7 @@ app.get('/contactus', (request, response) => {
       response.render('ContactUs', { isLogin: false });
     })
     .catch((error) => {
-      response.render('Login', { isLogin: true });
+      response.render('ContactUs', { isLogin: true });
     });
 });
 app.get('/faqs', (request, response) => {
@@ -161,7 +164,7 @@ app.get('/complaints', (request, response) => {
       response.render('Complaints', { isLogin: false });
     })
     .catch((error) => {
-      response.render('Login', { isLogin: true });
+      response.render('login', { isLogin: true , loginPage : true});
     });
 });
 let ids = (uid) => {
@@ -184,7 +187,7 @@ app.get('/mybills', (request, response) => {
       response.render('MyBills', { isLogin: false, MyBills :  myBills(userData.uid)});
     })
     .catch((error) => {
-      response.render('Login', { isLogin: true });
+      response.render('login', { isLogin: true , loginPage : true});
     });
 });
 
@@ -215,7 +218,7 @@ app.get('/transactions', (request, response) => {
         
     })
     .catch((error) => {
-      response.render('Login', { isLogin: true });
+      response.render('login', { isLogin: true , loginPage : true});
     });
 });
 app.get('/myComplaints', (request, response) => {
@@ -238,7 +241,7 @@ app.get('/myComplaints', (request, response) => {
         
     })
     .catch((error) => {
-      response.render('Login', { isLogin: true });
+      response.render('login', { isLogin: true , loginPage : true});
     });
 });
 //Save complaint
@@ -345,7 +348,7 @@ app.post('/pay', (request, response) => {
 
 app.get('/logout', (request, response) => {
   response.clearCookie("session");
-  response.render('Login', { isLogin: true });
+  response.render('login', { isLogin: true , loginPage : true});
 });
 app.post('/login', (request, response) => {
   const expiresIn = 60 * 60 * 24 * 5 * 1000;

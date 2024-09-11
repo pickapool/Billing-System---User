@@ -1,45 +1,48 @@
 {{!-- Create empty cause login in mainlayout --}}
-<div class="login w-100 d-flex flex-row"></div>
+<div class="d-flex flex-row container-l">
+    <div class="login w-100 d-flex flex-row"></div>
     <div class="w-50 login-left">
-    <form class="w-100 d-flex flex-column align-items-center" id="login">
-        <div class="logo">
-        <img class="img" src="../public/images/sample_logo.png"  style="border-radius: 50%;"/>
-        </div>
-        <div class="title text-center" style="color: white;">
-        <b>Web Based Water Billing System of LGU-Tibiao</b>
-        </div>
-        <div class="divider w-80">
-        </div>
-        <label id="error-message" style="color: red;"></label>
-        <div class="w-50 log-text">
-        <input class="textbox" type="email" id="email" name="email" placeholder="Email Address" />
-        </div>
-        <div class="w-50 log-text">
-        <input class="textbox" type="password" id="password" name="password" placeholder="Password" />
-        </div>
-        <div class="helper log-text w-50 d-flex flex-row">
-        <div class="helper-left log-text w-50 d-flex justify-content-start text-color1">
-            <label type="button" role="button" style="text-align: right;color: rgb(174, 168, 236);" class="btn-forgot" data-toggle="modal"
-            data-target="#exampleModalCenter">
-            Forgot Password?
-            </label>
-        </div>
-        <div class="helper-right log-text w-50 d-flex justify-content-end text-color1">
+        <form class="w-100 d-flex flex-column align-items-center" id="login">
+            <div class="logo">
+                <img class="img" src="../public/images/sample_logo.png" style="border-radius: 50%;" />
+            </div>
+            <div class="title text-center" style="color: white;">
+                <b>Web Based Water Billing System of LGU-Tibiao</b>
+            </div>
+            <div class="divider w-80">
+            </div>
+            <label id="error-message" style="color: red;"></label>
+            <div class="w-50 log-text">
+                <input class="textbox" type="email" id="email" name="email" placeholder="Email Address" />
+            </div>
+            <div class="w-50 log-text">
+                <input class="textbox" type="password" id="password" name="password" placeholder="Password" />
+            </div>
+            <div class="helper log-text w-50 d-flex flex-row">
+                <div class="helper-left log-text w-50 d-flex justify-content-start text-color1">
+                    <label type="button" role="button" style="text-align: right;color: rgb(174, 168, 236);"
+                        class="btn-forgot" data-toggle="modal" data-target="#exampleModalCenter">
+                        Forgot Password?
+                    </label>
+                </div>
+                <div class="helper-right log-text w-50 d-flex justify-content-end text-color1">
 
-        </div>
-        </div>
-        <div>
-        <button class="btn btn-primary" type="submit" id="loginButton" value="LOGIN">LOGIN</button>
-        </div>
-        <div class="helper d-flex justify-content-center" style="color: white;">
-        <p><b>Don't have an account?</b></p>
-        </div>
-        <div class="signup">
-        <label style="cursor: pointer;color: rgb(174, 168, 236);" data-toggle="modal" data-target="#exampleModalCenter1">SIGN UP HERE</label>
-        </div>
-    </form>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit" id="loginButton" value="LOGIN">LOGIN</button>
+            </div>
+            <div class="helper d-flex justify-content-center" style="color: white;">
+                <p><b>Don't have an account?</b></p>
+            </div>
+            <div class="signup">
+                <label style="cursor: pointer;color: rgb(174, 168, 236);" data-toggle="modal"
+                    data-target="#exampleModalCenter1">SIGN UP HERE</label>
+            </div>
+        </form>
     </div>
     <div class="w-50 login-right">
-    <img class="img" src="../public/images/login_image.png" />
+        <img class="img" src="../public/images/login_image.png" />
     </div>
+</div>
 </div>
