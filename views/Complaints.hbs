@@ -12,19 +12,19 @@
     <form class="w-100 d-flex flex-column align-items-center gap-2" id="complaint">
         <div class="inputs d-flex flex-column align-items-start w-40">
             <label>Account number</label>
-            <input class="form-control w-100" type="text" name="accountNumber" id="aNumber" placeholder="Account number (Including dash)" pattern="\d\d\d-\d\d-\d\d\d\d\d" data-charset="XXX-XX-XXXXX"/>
+            <input class="form-control w-100" readonly type="text" value="{{user.accountNumber}}" name="accountNumber" id="aNumber" placeholder="Account number (Including dash)" pattern="\d\d\d-\d\d-\d\d\d\d\d" data-charset="XXX-XX-XXXXX"/>
         </div>
         <div class="inputs d-flex flex-column align-items-start w-40">
             <label>Name</label>
-            <input class="form-control w-100" type="text" name="accountName" id="aName" placeholder="Account name"/>
+            <input class="form-control w-100" type="text" name="accountName" readonly value="{{user.name}}"  id="aName" placeholder="Account name"/>
         </div>
         <div class="inputs d-flex flex-column align-items-start w-40">
             <label>Phone number</label>
-            <input class="form-control w-100" inputmode="nummber" name="phoneNumber" id="pNumber" placeholder="Phone number"/>
+            <input class="form-control w-100" inputmode="nummber" name="phoneNumber" id="pNumber" placeholder="Phone number" readonly value="{{user.phoneNumber}}"/>
         </div>
         <div class="inputs d-flex flex-column align-items-start w-40">
             <label>Email Address</label>
-            <input class="form-control w-100" type="email" name="email" id="email" placeholder="Email address"/>
+            <input class="form-control w-100" type="email" name="email" id="email" placeholder="Email address" readonly value="{{user.email}}"/>
         </div>
         <div class="inputs d-flex flex-column align-items-start w-40">
             <label>Message</label>

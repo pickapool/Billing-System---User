@@ -161,7 +161,14 @@ app.get('/complaints', (request, response) => {
   auth
     .verifySessionCookie(sessionCookie, true /** checkRevoked */)
     .then((userData) => {
-      response.render('Complaints', { isLogin: false });
+      getUser(userData.user_id)
+      .then((user) => {
+        response.render('Complaints', { isLogin: false, user : user});
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+     
     })
     .catch((error) => {
       response.render('login', { isLogin: true , loginPage : true});
@@ -313,7 +320,20 @@ app.post('/saveUser', (request, response) => {
   });
 
 });
-
+let getUser = (uid) => {
+  return new Promise((resolve, reject) => {
+    userAccount.orderByChild('uid').equalTo(uid).once('value', (snapshot) => {
+      if (snapshot.exists()) {
+        let user = Object.values(snapshot.val())[0]; // Get the first matching value
+        resolve(user);
+      } else {
+        resolve(null); // No matching value found
+      }
+    }, (error) => {
+      reject(error); // Handle errors
+    });
+  });
+};
 //Pay bill
 app.post('/pay', (request, response) => {
   const sessionCookie = request.cookies.session || "";
