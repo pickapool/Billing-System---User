@@ -14,6 +14,8 @@ var serviceAccount = require("./serviceAccountKey.json");
 const { Console } = require('console');
 const { request } = require('http');
 const { response } = require('express');
+const cors = require('cors');
+
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
@@ -54,8 +56,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(csrfMiddleware);
-
-
+app.use(cors());
 
 app.all("*", (req, res, next) => {
   res.cookie("XSRF-TOKEN", req.csrfToken());
@@ -353,11 +354,12 @@ app.post('/pay', (request, response) => {
         consumed : request.body.consumed,
         arrears : request.body.arrears
       }
-      console.log(paymentData);
-      //console.log(request.body.previousreading);
+
       payments.child(userData.uid).child(key).set(paymentData)
         .then(() => {
-          response.redirect(paymentUrl);
+          response.json({ paymentUrl:  paymentUrl});
+          //window.open(paymentUrl, '_blank');
+          //response.redirect(paymentUrl);
         })
     })
     .catch((error) => {

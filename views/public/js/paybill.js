@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
                         paymentUrl = result.data.attributes.checkout_url;
                         var link = document.getElementById("payment");
                         link.setAttribute("href", paymentUrl);
-                        link.click();
+                        
                         fetch("/pay", {
                             method: "POST",
                             headers: {
@@ -51,16 +51,28 @@ window.addEventListener("DOMContentLoaded", () => {
                                 "Content-Type": "application/json",
                                 "CSRF-Token": Cookies.get("XSRF-TOKEN"),
                             },
-                            body: JSON.stringify({paymentId,paymentUrl,
+                            body: JSON.stringify({
+                                paymentId,
+                                paymentUrl,
                                 previousreading,
                                 presentreading,
                                 consumed,
-                                arrears}),
-                        })
+                                arrears,
+                            }),
+                            }).then((response) => {
+                            if (response.ok) {
+                                response.json().then((data) => {
+                                    window.location.href = data.paymentUrl; // Redirect to payment URL
+                                });
+                            } else {
+                                console.error('Error with the payment request:', response);
+                            }
+                            }).catch((error) => {
+                            console.error("Error in fetch request:", error);
+                            });
+                        
+                        //link.click();
                     });
-                })
-                .then(response =>{
-                    
                 })
                 .catch(err => console.error(err))
         });
