@@ -352,7 +352,8 @@ app.post('/pay', (request, response) => {
         previousreading : request.body.previousreading,
         presentreading : request.body.presentreading,
         consumed : request.body.consumed,
-        arrears : request.body.arrears
+        arrears : request.body.arrears,
+        clientUid : userData.uid
       }
 
       payments.child(userData.uid).child(key).set(paymentData)
