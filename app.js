@@ -99,7 +99,7 @@ app.get('/home', (request, response) => {
     });
 });
 app.get('/login', (request, response) => {
-  response.render('login', { isLogin: true , loginPage : true , email : userData.email});
+  response.render('Login', { isLogin: true , loginPage : true});
 });
 app.get('/aboutus', (request, response) => {
   const sessionCookie = request.cookies.session || "";
