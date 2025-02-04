@@ -70,7 +70,7 @@ app.get('/', (request, response) => {
     .verifySessionCookie(sessionCookie, true /** checkRevoked */)
     .then((userData) => {
       //console.log("Logged in:", userData.email)
-      response.render('HomePage', { isLogin: false });
+      response.render('HomePage', { isLogin: false , email : userData.email});
     })
     .catch((error) => {
       response.render('HomePage', { isLogin: true });
@@ -81,7 +81,7 @@ app.get('/services', (request, response) => {
   auth
     .verifySessionCookie(sessionCookie, true /** checkRevoked */)
     .then((userData) => {
-      response.render('Services', { isLogin: false });
+      response.render('Services', { isLogin: false, email : userData.email });
     })
     .catch((error) => {
       response.render('Services', { isLogin: true });
@@ -92,21 +92,21 @@ app.get('/home', (request, response) => {
   auth
     .verifySessionCookie(sessionCookie, true /** checkRevoked */)
     .then((userData) => {
-      response.render('HomePage', { isLogin: false });
+      response.render('HomePage', { isLogin: false, email : userData.email });
     })
     .catch((error) => {
       response.render('HomePage', { isLogin: true });
     });
 });
 app.get('/login', (request, response) => {
-  response.render('login', { isLogin: true , loginPage : true});
+  response.render('login', { isLogin: true , loginPage : true , email : userData.email});
 });
 app.get('/aboutus', (request, response) => {
   const sessionCookie = request.cookies.session || "";
   auth
     .verifySessionCookie(sessionCookie, true /** checkRevoked */)
     .then((userData) => {
-      response.render('AboutUs', { isLogin: false });
+      response.render('AboutUs', { isLogin: false, email : userData.email });
     })
     .catch((error) => {
       response.render('AboutUs', { isLogin: true });
@@ -117,7 +117,7 @@ app.get('/contactus', (request, response) => {
   auth
     .verifySessionCookie(sessionCookie, true /** checkRevoked */)
     .then((userData) => {
-      response.render('ContactUs', { isLogin: false });
+      response.render('ContactUs', { isLogin: false, email : userData.email });
     })
     .catch((error) => {
       response.render('ContactUs', { isLogin: true });
@@ -128,7 +128,7 @@ app.get('/faqs', (request, response) => {
   auth
     .verifySessionCookie(sessionCookie, true /** checkRevoked */)
     .then((userData) => {
-      response.render('Faqs', { isLogin: false });
+      response.render('Faqs', { isLogin: false, email : userData.email });
     })
     .catch((error) => {
       response.render('Login', { isLogin: true });
@@ -150,8 +150,9 @@ app.get('/paybills', (request, response) => {
         amount : amount,
         previousreading : from,
         presentreading: to,
-      consumed : con,
-    arrears : arrears });
+        consumed : con,
+        arrears : arrears,
+        email : userData.email });
     })
     .catch((error) => {
       response.render('Login', { isLogin: true });
@@ -164,7 +165,7 @@ app.get('/complaints', (request, response) => {
     .then((userData) => {
       getUser(userData.user_id)
       .then((user) => {
-        response.render('Complaints', { isLogin: false, user : user});
+        response.render('Complaints', { isLogin: false, user : user, email : userData.email});
       })
       .catch((error) => {
         console.error(error);
@@ -192,7 +193,7 @@ app.get('/mybills', (request, response) => {
   auth
     .verifySessionCookie(sessionCookie, true /** checkRevoked */)
     .then((userData) => {
-      response.render('MyBills', { isLogin: false, MyBills :  myBills(userData.uid)});
+      response.render('MyBills', { isLogin: false, MyBills :  myBills(userData.uid), email : userData.email});
     })
     .catch((error) => {
       response.render('login', { isLogin: true , loginPage : true});
@@ -220,7 +221,7 @@ app.get('/transactions', (request, response) => {
   auth
     .verifySessionCookie(sessionCookie, true /** checkRevoked */)
     .then((userData) => {
-        response.render('Transactions', { isLogin: false, paymentIds : JSON.stringify(ids(userData.uid)) });
+        response.render('Transactions', { isLogin: false, paymentIds : JSON.stringify(ids(userData.uid)), email : userData.email });
     }).then( () => {
         
         
@@ -243,13 +244,13 @@ app.get('/myComplaints', (request, response) => {
           });
         }
       })
-      response.render('MyComplaints', { isLogin: false, listOfComplaints : listOfComplaints });
+      response.render('MyComplaints', { isLogin: false, listOfComplaints : listOfComplaints, email : userData.email });
     }).then( () => {
         
         
     })
     .catch((error) => {
-      response.render('login', { isLogin: true , loginPage : true});
+      response.render('login', { isLogin: true , loginPage : true, email : userData.email});
     });
 });
 //Save complaint
@@ -376,6 +377,8 @@ app.get('/logout', (request, response) => {
 app.post('/login', (request, response) => {
   const expiresIn = 60 * 60 * 24 * 5 * 1000;
   const idToken = request.body.idToken.toString();
+  const email = request.body.login.toString();
+
   admin
     .auth()
     .createSessionCookie(idToken, { expiresIn })
@@ -383,7 +386,7 @@ app.post('/login', (request, response) => {
       (sessionCookie) => {
         const options = { maxAge: expiresIn, httpOnly: true };
         response.cookie("session", sessionCookie, options);
-        response.render('HomePage', { isLogin: false });
+        response.render('HomePage', { isLogin: false, email : email });
       },
       (error) => {
         res.status(401).send("UNAUTHORIZED REQUEST!");

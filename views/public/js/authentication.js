@@ -2,6 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
   firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
   const users = firebase.database().ref('/UserAccounts');
   //Login
+  try {
   document
     .getElementById("login")
     .addEventListener("submit", (event) => {
@@ -9,7 +10,6 @@ window.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       const login = event.target.email.value;
       const password = event.target.password.value;
-
       firebase
         .auth()
         .signInWithEmailAndPassword(login, password)
@@ -23,7 +23,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 "Content-Type": "application/json",
                 "CSRF-Token": Cookies.get("XSRF-TOKEN"),
               },
-              body: JSON.stringify({ idToken, userUID }),
+              body: JSON.stringify({ idToken, userUID, login }),
             });
           });
         })
@@ -41,8 +41,11 @@ window.addEventListener("DOMContentLoaded", () => {
         })
       return false;
     });
-
+  } catch(ee) {
+    
+  }
   //Google signin
+  try {
   document
     .getElementById("googleButton")
     .addEventListener("click", (event) => {
@@ -73,6 +76,9 @@ window.addEventListener("DOMContentLoaded", () => {
           // ...
         });
     });
+  } catch(ee) {
+    
+  }
   function GoogleSignIn(userUID,email,user) {
     users.child(userUID).once("value")
       .then(function (snapshot) {
@@ -136,6 +142,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
   //ENd google signin
   //Start faceboook LOgin
+  try {
   document
     .getElementById("facebookButton")
     .addEventListener("click", (event) => {
@@ -165,6 +172,9 @@ window.addEventListener("DOMContentLoaded", () => {
           // ...
         });
     });
+  } catch(ee) {
+    
+  }
   function FacebookSignIn(userUID,email,user) {
     users.child(userUID).once("value")
       .then(function (snapshot) {
