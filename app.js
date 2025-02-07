@@ -173,7 +173,7 @@ app.get('/complaints', (request, response) => {
      
     })
     .catch((error) => {
-      response.render('login', { isLogin: true , loginPage : true});
+      response.render('Login', { isLogin: true , loginPage : true});
     });
 });
 let ids = (uid) => {
@@ -196,7 +196,7 @@ app.get('/mybills', (request, response) => {
       response.render('MyBills', { isLogin: false, MyBills :  myBills(userData.uid), email : userData.email});
     })
     .catch((error) => {
-      response.render('login', { isLogin: true , loginPage : true});
+      response.render('Login', { isLogin: true , loginPage : true});
     });
 });
 
@@ -227,7 +227,7 @@ app.get('/transactions', (request, response) => {
         
     })
     .catch((error) => {
-      response.render('login', { isLogin: true , loginPage : true});
+      response.render('Login', { isLogin: true , loginPage : true});
     });
 });
 app.get('/myComplaints', (request, response) => {
@@ -250,7 +250,7 @@ app.get('/myComplaints', (request, response) => {
         
     })
     .catch((error) => {
-      response.render('login', { isLogin: true , loginPage : true, email : userData.email});
+      response.render('Login', { isLogin: true , loginPage : true, email : userData.email});
     });
 });
 //Save complaint
@@ -372,7 +372,7 @@ app.post('/pay', (request, response) => {
 
 app.get('/logout', (request, response) => {
   response.clearCookie("session");
-  response.render('login', { isLogin: true , loginPage : true});
+  response.render('Login', { isLogin: true , loginPage : true});
 });
 app.post('/login', (request, response) => {
   const expiresIn = 60 * 60 * 24 * 5 * 1000;
